@@ -8,6 +8,7 @@ public class Botones extends JPanel{
     private JButton bCoca, bSprite, bFanta;
     private JButton bMoneda100, bMoneda500, bMoneda1000;
     private JButton bSacarBebida;
+    private JButton bSacarVuelto;
     
     public Botones(PanelCentral panel){
         this.panel = panel;
@@ -16,11 +17,12 @@ public class Botones extends JPanel{
         bSprite = new JButton();
         bFanta = new JButton();
         
-        bMoneda100 = new JButton();
-        bMoneda500 = new JButton();
-        bMoneda1000 = new JButton();
+        bMoneda100 = new JButton("$100");
+        bMoneda500 = new JButton("$500");
+        bMoneda1000 = new JButton("$1000");
         
         bSacarBebida = new JButton();
+        bSacarVuelto = new JButton();
         
         bCoca.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent e){
@@ -88,8 +90,17 @@ public class Botones extends JPanel{
                 panel.repaint();
             }
         });
-        bSacarBebida.setBounds(830, 340, 50, 50);
+        bSacarBebida.setBounds(830, 570, 50, 50);
         bSacarBebida.setBackground(Color.blue);
         panel.add(bSacarBebida);
+        
+        bSacarVuelto.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent e){
+                
+            }
+        });
+        bSacarVuelto.setBounds(830, 400, 50, 50);
+        bSacarVuelto.setBackground(Color.lightGray);
+        panel.add(bSacarVuelto);
     }
 }

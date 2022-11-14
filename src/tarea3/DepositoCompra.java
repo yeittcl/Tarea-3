@@ -5,6 +5,7 @@ import javax.swing.*;
 public class DepositoCompra extends JPanel{
     private Bebida bebidaComprada;
     
+    @Override
     public void paintComponent(Graphics g){
         super.paintComponent(g);
         

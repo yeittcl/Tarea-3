@@ -1,4 +1,3 @@
-
 package tarea3;
 import java.awt.*;
 import javax.swing.*;
@@ -25,6 +24,7 @@ public class DepositoBebida extends JPanel{
         return deposito.isEmpty();
     }
     
+    @Override
     public void paintComponent(Graphics g){
         super.paintComponent(g);
         if(deposito.isEmpty()){
