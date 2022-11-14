@@ -56,4 +56,61 @@ public class Expendedora extends JPanel{
         depositoVuelto.paintComponent(g);
         
     }
+    
+    public void venderBebida(Moneda moneda, int select){
+        try{
+            if(moneda == null){
+                throw new PagoIncorrectoException("ingrese una moneda valida");
+            }
+            if(moneda.getValor() >= precioBebida){
+                switch(select){
+                    case 1: 
+                        if(depositoCoca.isEmpty()){
+                            throw new NoHayBebidaException("No hay bebida");
+                        }
+                        if(depositoCompra.isEmpty()){
+                            depositoCompra.addBebida(depositoCoca.getBebida());
+                            depositoMoneda.add(moneda);
+                            depositoVuelto.crearVuelto(moneda.getValor(), precioBebida);
+                        }else{
+                            throw new BebidaSinRetirarException("Saque su bebida primero");
+                        }
+                    
+                    case 2: 
+                        if(depositoSprite.isEmpty()){
+                            throw new NoHayBebidaException("No hay bebida");
+                        }
+                        if(depositoCompra.isEmpty()){
+                            depositoCompra.addBebida(depositoSprite.getBebida());
+                            depositoMoneda.add(moneda);
+                            depositoVuelto.crearVuelto(moneda.getValor(), precioBebida);
+                        }else{
+                            throw new BebidaSinRetirarException("Saque su bebida primero");
+                        }
+                        break;
+                    
+                    case 3: 
+                        if(depositoFanta.isEmpty()){
+                            throw new NoHayBebidaException("No hay bebida");
+                        }
+                        if(depositoCompra.isEmpty()){
+                            depositoCompra.addBebida(depositoFanta.getBebida());
+                            depositoMoneda.add(moneda);
+                            depositoVuelto.crearVuelto(moneda.getValor(), precioBebida);
+                        }else{
+                            throw new BebidaSinRetirarException("Saque su bebida primero");
+                        }
+                        break;
+                    }
+                }else{
+                throw new PagoInsuficienteException("El dinero es insuficiente para la compra");
+            }
+        }catch(PagoIncorrectoException | NoHayBebidaException | PagoInsuficienteException | BebidaSinRetirarException e){
+            System.out.println(e.getMessage());
+        }
+    }
+    
+    public Bebida getBebida(){
+        return depositoCompra.getBebida();
+    }
 }

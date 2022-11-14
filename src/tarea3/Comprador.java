@@ -40,5 +40,28 @@ public class Comprador extends JPanel{
             mano.paintComponent(g);
         }
     }
+    
+    public void darMoneda(int select){
+        switch(select){
+            case 1: 
+                moneda = new Moneda100();
+                break;
+            case 2: 
+                moneda = new Moneda500();
+                break;
+            case 3: 
+                moneda = new Moneda1000();
+                break;
+        }
+    }
+    public void comprarBebida(int select, Expendedora expend){
+        expend.venderBebida(moneda, select);
+        
+    }
+    
+    public void setBebida(Bebida bebida){
+        mano = bebida;
+        moneda = null;
+    }
 }
 
