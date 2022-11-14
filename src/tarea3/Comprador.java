@@ -2,14 +2,17 @@ package tarea3;
 
 import java.awt.*;
 import javax.swing.*;
+import java.util.ArrayList;
 
 public class Comprador extends JPanel{
     private Moneda moneda;
     private Bebida mano;
+    private ArrayList<Moneda> bolsillo;
     
     public Comprador(){
         setBounds(240,210,400,400);
         setOpaque(false);
+        bolsillo = new ArrayList<>();
     }
     
     @Override
@@ -35,8 +38,16 @@ public class Comprador extends JPanel{
             moneda.paintComponent(g);
         }
         if(mano != null){
-            mano.setBounds(100,280,90,50);
+            mano.setBounds(110,280,90,50);
             mano.paintComponent(g);
+        }
+        if(!bolsillo.isEmpty()){
+            Moneda aux;
+            for(int i=0; i<bolsillo.size() && i< 5; i++){
+                aux = bolsillo.get(i);
+                aux.setBounds(30, 200+(50*i), 40, 40);
+                aux.paintComponent(g);
+            }
         }
     }
     
@@ -61,6 +72,13 @@ public class Comprador extends JPanel{
     public void setBebida(Bebida bebida){
         mano = bebida;
         moneda = null;
+    }
+    
+    public void sacarVuelto(Expendedora expend){
+        Moneda aux = expend.getVuelto();
+        if(aux != null){
+            bolsillo.add(aux);
+        }
     }
 }
 

@@ -112,4 +112,7 @@ public class Expendedora extends JPanel{
     public Bebida getBebida(){
         return depositoCompra.getBebida();
     }
+    public Moneda getVuelto(){
+        return depositoVuelto.getMoneda();
+    }
 }

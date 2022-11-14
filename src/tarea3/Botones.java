@@ -96,7 +96,8 @@ public class Botones extends JPanel{
         
         bSacarVuelto.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent e){
-                
+                panel.getComprador().sacarVuelto(panel.getExpendedora());
+                panel.repaint();
             }
         });
         bSacarVuelto.setBounds(830, 400, 50, 50);
