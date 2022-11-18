@@ -7,7 +7,7 @@ public class PanelCentral extends JPanel{
     private Comprador comp;
     
     public PanelCentral(){
-        expend = new Expendedora(2,500);
+        expend = new Expendedora(5,500);
         comp = new Comprador();
         
         setLayout(null);

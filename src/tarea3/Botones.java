@@ -24,6 +24,7 @@ public class Botones extends JPanel{
         bSacarBebida = new JButton();
         bSacarVuelto = new JButton();
         
+        
         bCoca.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent e){
                 panel.getComprador().comprarBebida(1, panel.getExpendedora());
